@@ -1,0 +1,135 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+body{
+    background-color: dimgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.card{
+    /* height: 370px; */
+    /* max-width: 100%; */
+    padding: 20px;
+    /* width: 320px; */
+    border-radius: 15px;
+    background:linear-gradient(#5eb6d6,#31a3cc,#096687);
+}
+
+.cityname{
+    width: 290px;
+    display: flex;
+    align-items: center;
+    outline: none;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fffff797;
+    /* margin-left: -20px; */
+ /* opacity: ; */
+    margin: 10px;
+    position: relative;
+    top: 10px;
+    /* height: 26px; */
+    border-radius: 20px;
+    border-width: 0px;
+    border-color:#fffff797 ;
+}
+.cityname input{
+    color: black;
+}
+.searchbtn img{
+    height: 16px;
+    width: 16px;
+}
+.searchbtn{
+border-radius: 50%;
+cursor: pointer;
+border: none;
+position: relative;
+
+top: 10px;
+background-color: rgba(255, 255, 255, 0.562);
+/* color: ; */
+margin: 10px;
+/* margin-right: -30px; */
+/* width: 90px; */
+padding: 10px;
+}
+.search{
+    display: flex;
+    align-items: flex-start;
+    justify-content:space-between;
+    
+}
+.temp img{
+    height: 120px;
+    width: 150px;
+    border-radius: 40px;
+    /* display: flex; */
+    position: relative;
+    margin-left: -140px;
+    /* display: none; */
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left:70px;
+    
+}
+.temp{
+    text-align: center;
+    position: relative;
+   
+    bottom: -10px;
+    color: white;
+   
+}
+.wind img{
+    height: 70px;
+    width: 60px;
+    
+}
+.wind{
+    display: flex;
+   margin: 0px;
+   
+    align-items: center;
+    padding: 1.3rem 0;
+    position: relative;
+    top: 10px;
+    color: white;
+}
+
+.humid img{
+    height: 70px;
+    width: 60px;
+}
+.humid{
+   display: flex;
+   position: relative;
+   top: 10px;
+   /* display: none; */
+    align-items: center;
+    padding: 1.3rem 0;
+   margin: 10px;
+    color: white;
+}
+.two{
+    display: flex;
+
+justify-content: center;
+}
+.error{
+    color: white;
+    display: none;
+}
+/* img{
+    display: none;
+} */
+/* .image1{
+    display: none;
+} */

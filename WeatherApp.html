@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="WeatherApp.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" class="cityname" placeholder="Enter City name here...." required>
+            <button class="searchbtn"><img src="https://cdn-icons-png.flaticon.com/512/54/54481.png"></button>
+        </div>
+        <div class="error">
+            <h4 style="margin-left: 14px;">Invalid City name</h4>
+        </div>
+        <div class="temp">
+            <img src="https://www.freepnglogos.com/uploads/sun-png/patio-shades-sun-screens-phoenix-east-valley-arizona-7.png"   
+                class="image1">
+            <h1 class="T">0°C</h1>
+            <h2 class="city">Enter City name</h2>
+        </div>
+        <div class="two">
+            <div class="humid">
+                <img src="https://icons.veryicon.com/png/o/education-technology/iot-icon/humidity-4.png" class="image1">
+                <div>
+                    <h2 class="H">0%</h2>
+                    <h3>Humidity</h3>
+                </div>
+
+            </div>
+            <div class="wind">
+                <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/700457-icon-43-wind-512.png" class="image1">
+                <div>
+
+                    <h2 class="W">0kmph</h2>
+                    <h4>Wind Speed</h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    const apiKey = "04ef8c688c051edd660782e9ef7feb14";
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+    const cityname = document.querySelector(".cityname");
+    const btn = document.querySelector(".searchbtn");
+    async function chechWeather(city) {
+        const resp = await fetch(apiUrl + city + `&appid=${apiKey}`);
+        if (resp.status == 404) {
+            document.querySelector(".error").style.display = "block";
+            document.querySelector(".city").innerHTML = "error";
+            document.querySelector(".T").innerHTML = "";
+            document.querySelector(".H").innerHTML = "error";
+            document.querySelector(".W").innerHTML = "error";
+        }
+        else {
+            let data = await resp.json();
+            console.log(data);
+            document.querySelector(".city").innerHTML = data.name;
+            document.querySelector(".T").innerHTML = Math.round(data.main.temp) + "°C";
+            document.querySelector(".H").innerHTML = data.main.humidity + "%";
+            document.querySelector(".W").innerHTML = data.wind.speed + "kmph";
+            document.querySelector(".error").style.display = "none";
+
+            // document.querySelector(".image1").style.display="block";
+
+        }
+    }
+    btn.addEventListener("click", () => {
+        chechWeather(cityname.value);
+    })
+
+</script>
+
+</html>
